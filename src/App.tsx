@@ -1,5 +1,8 @@
 import { Provider } from 'react-redux'
 import { MoorhenContainer, MoorhenReduxStore } from 'moorhen';
+import { webGL } from 'moorhen/types/mgWebGL';
+import { moorhen } from 'moorhen/types/moorhen';
+import { useRef } from 'react';
 
 import './App.css';
 import './moorhen.css';
@@ -14,9 +17,13 @@ function App() {
   //
   // urlPrefix = "/foo/bar/sna/fu/baby-gru"
 
+
+  const glRef = useRef<webGL.MGWebGL | null>(null)
+  const commandCentre = useRef<moorhen.CommandCentre | null>(null)
+
   const urlPrefix = "/baby-gru"
   const collectedProps = {
-         urlPrefix
+         urlPrefix, glRef, commandCentre
   }
 
   return (
